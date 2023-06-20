@@ -35,9 +35,10 @@ def tensor2label(label_tensor, n_label, imtype=np.uint8):
     return label_numpy.astype(imtype)
 
 def save_image(image_numpy, image_path):
-    image_pil = Image.fromarray(image_numpy)
-    image_pil.convert("L")
-    image_pil.save(image_path)
+    image_pil1 = Image.fromarray(image_numpy)
+    image_pil2 = image_pil1.convert("L")
+    image_pil3 = image_pil2.convert("1")
+    image_pil3.save(image_path)
 
 def mkdirs(paths):
     if isinstance(paths, list) and not isinstance(paths, str):
